@@ -38,7 +38,5 @@ Financial Summary
 -Monthly breakdown and top spending categories
 
 Filtering & Reporting
-
-Filter transactions by date range, category, or type
-
-Generate summaries for specific months
+- Filter transactions by date range, category, or type
+- Generate summaries for specific months
