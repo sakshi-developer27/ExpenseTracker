@@ -34,8 +34,8 @@ Category Management
 - Assign transactions to categories
 
 Financial Summary
--Total income, total expense, and remaining balance
--Monthly breakdown and top spending categories
+- Total income, total expense, and remaining balance
+- Monthly breakdown and top spending categories
 
 Filtering & Reporting
 - Filter transactions by date range, category, or type
