@@ -1,12 +1,11 @@
-﻿using ExpenseTracker.Repository.Generic;
-using ExpenseTracker.Service.AuthService;
+﻿using ExpenseTracker.Models;
+using ExpenseTracker.Repository.Generic;
 
 namespace ExpenseTracker.Repository.UnitOfWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
-        IGenericRepository<T> Repository<T>() where T : class;
-        IAuthService AuthService { get; }
-        Task<int> SaveChangesAsync();
+        IGenericRepository<User> Users { get; }
+        Task<int> CompleteAsync();
     }
 }

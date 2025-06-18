@@ -1,32 +1,28 @@
 ﻿using ExpenseTracker.Data;
+using ExpenseTracker.Models;
 using ExpenseTracker.Repository.Generic;
-using ExpenseTracker.Service.AuthService;
 
 namespace ExpenseTracker.Repository.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDBContext _context;
-        private readonly IAuthService _authService;
-        private readonly IGenericRepository<T> _genericRepository;
+        public IGenericRepository<User> Users { get; private set; }
 
-        public UnitOfWork(ApplicationDBContext context, IAuthService authService, IGenericRepository genericRepository)
+        public UnitOfWork(ApplicationDBContext context)
         {
             _context = context;
-            _authService = authService;
-            _genericRepository = genericRepository;
-        }
-        public IAuthService AuthService => _authService;
-        public IGenericRepository GenericRepository => _genericRepository;
-
-        public IGenericRepository<T> Repository<T>() where T : class
-        {
-            throw new NotImplementedException();
+            Users = new GenericRepository<User>(_context);
         }
 
-        public async Task<int> SaveChangesAsync()
+        public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

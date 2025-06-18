@@ -13,7 +13,7 @@ namespace ExpenseTracker.Repository.Generic
             _context = context;
             _dbSet = context.Set<T>();
         }
-        public async Task AddAsyn(T entity)
+        public async Task AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
         }
@@ -54,14 +54,14 @@ namespace ExpenseTracker.Repository.Generic
             _dbSet.RemoveRange(entites);
         }
 
-        public async Task<int> SaveChanges()
-        {
-            return await _context.SaveChangesAsync();
-        }
-
         public void Update(T entity)
         {
             _dbSet.Update(entity);
+        }
+
+        public async Task<int> SaveChanges()
+        {
+            return await _context.SaveChangesAsync();
         }
     }
 }

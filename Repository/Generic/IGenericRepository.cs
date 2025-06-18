@@ -6,7 +6,7 @@ namespace ExpenseTracker.Repository.Generic
     {
         Task<T> GetById(int id);
         Task<IEnumerable<T>> GetAll();
-        Task AddAsyn(T entity);
+        Task AddAsync(T entity);
         Task AddRangeAsync(IEnumerable<T> entities);
         void Update(T entity);
         void Remove(T entity);
