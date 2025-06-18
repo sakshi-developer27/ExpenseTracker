@@ -1,7 +1,18 @@
-﻿namespace ExpenseTracker.Repository.Generic
+﻿using System.Linq.Expressions;
+
+namespace ExpenseTracker.Repository.Generic
 {
-    public interface IGenericRepository
+    public interface IGenericRepository<T> where T : class
     {
-        Task<int> SaveChangesAsync();
+        Task<T> GetById(int id);
+        Task<IEnumerable<T>> GetAll();
+        Task AddAsyn(T entity);
+        Task AddRangeAsync(IEnumerable<T> entities);
+        void Update(T entity);
+        void Remove(T entity);
+        void RemoveRange(IEnumerable<T> entites);
+        Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
+        Task<int> CountAsync(Expression<Func<T, bool>> predicate);
+        Task<int> SaveChanges();
     }
 }
