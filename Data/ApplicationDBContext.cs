@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Models;
+﻿using ExpenseTracker.Models.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseTracker.Data
@@ -8,6 +8,6 @@ namespace ExpenseTracker.Data
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserMaster> Users { get; set; }
     }
 }

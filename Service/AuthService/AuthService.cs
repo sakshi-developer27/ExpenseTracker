@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Models;
+﻿using ExpenseTracker.Models.User;
 using ExpenseTracker.Repository.UnitOfWork;
 using ExpenseTracker.ViewModel;
 
@@ -12,7 +12,7 @@ namespace ExpenseTracker.Service.AuthService
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<User?> LoginAsync(string email, string password)
+        public async Task<UserMaster?> LoginAsync(string email, string password)
         {
             var user = (await _unitOfWork.Users.GetAll())
                 .FirstOrDefault(u => u.Email == email && u.Password == password);
@@ -25,7 +25,7 @@ namespace ExpenseTracker.Service.AuthService
             {
                 return false;
             }
-            var user = new User
+            var user = new UserMaster
             {
                 Email = userViewModel.Email,
                 Password = userViewModel.Password

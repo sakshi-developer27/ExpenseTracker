@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpenseTracker.Models.Core;
+using System.ComponentModel.DataAnnotations;
 
-namespace ExpenseTracker.Models
+namespace ExpenseTracker.Models.User
 {
-    public class User : AuditableEntity
+    public class UserMaster : Auditable
     {
         public int Id { get; set; }
         [Required]
@@ -15,6 +16,5 @@ namespace ExpenseTracker.Models
         [StringLength(250)]
         public string? Password { get; set; }
         public bool IsActive { get; set; }
-
     }
 }

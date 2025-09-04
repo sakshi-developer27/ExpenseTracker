@@ -1,5 +1,5 @@
 ﻿using ExpenseTracker.Data;
-using ExpenseTracker.Models;
+using ExpenseTracker.Models.User;
 using ExpenseTracker.Repository.Generic;
 
 namespace ExpenseTracker.Repository.UnitOfWork
@@ -7,12 +7,12 @@ namespace ExpenseTracker.Repository.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDBContext _context;
-        public IGenericRepository<User> Users { get; private set; }
+        public IGenericRepository<UserMaster> Users { get; private set; }
 
         public UnitOfWork(ApplicationDBContext context)
         {
             _context = context;
-            Users = new GenericRepository<User>(_context);
+            Users = new GenericRepository<UserMaster>(_context);
         }
 
         public async Task<int> CompleteAsync()

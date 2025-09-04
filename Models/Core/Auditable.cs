@@ -1,6 +1,6 @@
-﻿namespace ExpenseTracker.Models
+﻿namespace ExpenseTracker.Models.Core
 {
-    public class AuditableEntity
+    public class Auditable
     {
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public string? CreatedBy { get; set; }
